@@ -6,4 +6,6 @@ interface IModel<T> {
   delete(_id: string): Promise<T | null>,
 }
 
+export default IModel;
+
 export { IModel };
