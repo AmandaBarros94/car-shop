@@ -8,7 +8,7 @@ import ErrorWithStatus from '../Error';
 
 const productSchema = Joi.object({
   model: Joi.string().min(3).required(),
-  year: Joi.number().min(1900).max(2022),
+  year: Joi.number().min(1900).max(2022).required(),
   color: Joi.string().min(3).required(),
   buyValue: Joi.number().required(),
   doorsQty: Joi.number().min(2).max(4).required(),
