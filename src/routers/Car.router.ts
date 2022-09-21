@@ -9,6 +9,10 @@ const car = new CarModel();
 const carService = new CarService(car);
 const carController = new CarController(carService);
 
-carRouter.post('/', CarValidator, (_request, response) => carController.create(_request, response));
+carRouter.post(
+  '/',
+  CarValidator,
+  (_request, response) => carController.create(_request, response),
+);
 
 export default carRouter;
