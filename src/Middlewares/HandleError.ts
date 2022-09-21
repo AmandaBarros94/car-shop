@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import ErrorWithStatus from '../Error';
 
-const handlerErrors = (
+const handleErrors = (
   err: ErrorWithStatus, 
   request: Request,
   response: Response, 
@@ -11,4 +11,4 @@ const handlerErrors = (
   response.status(status || 500).json({ message });
 };
 
-export default handlerErrors;
+export default handleErrors;
