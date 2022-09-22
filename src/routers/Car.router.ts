@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import CarController from '../controllers/Car.controller';
-import CarValidator from '../Middlewares/CarValidator';
+import { CarValidator, IdValidator } from '../Middlewares';
 import CarModel from '../models/Car';
 import CarService from '../services/Car.service';
 
@@ -18,5 +18,10 @@ carRouter.post(
 carRouter.get(
   '/', 
   (_request, response) => carController.read(_request, response),
+);
+carRouter.get(
+  '/:id',
+  IdValidator,
+  (_request, response) => carController.readOne(_request, response),
 );
 export default carRouter;

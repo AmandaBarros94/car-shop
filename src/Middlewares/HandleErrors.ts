@@ -1,14 +1,14 @@
 import { NextFunction, Request, Response } from 'express';
 import ErrorWithStatus from '../Error';
 
-const handleErrors = (
+const HandleErrors = (
   err: ErrorWithStatus, 
-  request: Request,
+  _request: Request,
   response: Response, 
   _next: NextFunction,
 ) => {
-  const { status, message } = err as ErrorWithStatus;
-  response.status(status || 500).json({ message });
+  const { status, error } = err as ErrorWithStatus;
+  response.status(status || 500).json({ error });
 };
 
-export default handleErrors;
+export default HandleErrors;

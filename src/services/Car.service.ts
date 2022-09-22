@@ -32,10 +32,5 @@ class CarService implements IService<ICar> {
 
     return carUpdated;
   }
-
-//   public async read(): Promise<ICar[]> {
-//     return this._car.read();
-//   }
-// }
 }
 export default CarService;

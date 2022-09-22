@@ -1,12 +1,12 @@
 class ErrorWithStatus extends Error {
   status: number;
   
-  message: string;
+  error: string;
   
-  constructor(message: string, status = 400) {
-    super(message);
+  constructor(error: string, status = 400) {
+    super(error);
     this.status = status;
-    this.message = message;
+    this.error = error;
   }
 }
   
