@@ -17,6 +17,7 @@ describe('Testing Car Controller', () => {
 
   before(() => {
     sinon.stub(carService, 'create').resolves(carWithId);
+    sinon.stub(carService, 'read').resolves([carWithId]);
 
     response.status = sinon.stub().returns(response);
     response.json = sinon.stub().returns(response);
@@ -36,6 +37,14 @@ describe('Testing Car Controller', () => {
 
       expect((response.json as sinon.SinonStub)
         .calledWith(carWithId)).to.be.true;
+    });
+  });
+  describe('Searching for a car list', () => {
+    it('Expected on success', async () => {
+
+      await carController.read(_request, response);
+      expect((response.status as sinon.SinonStub)
+        .calledWith(200)).to.be.true;
     });
   });
 })
