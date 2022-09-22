@@ -15,4 +15,8 @@ carRouter.post(
   (_request, response) => carController.create(_request, response),
 );
 
+carRouter.get(
+  '/', 
+  (_request, response) => carController.read(_request, response),
+);
 export default carRouter;

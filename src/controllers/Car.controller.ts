@@ -13,6 +13,15 @@ class CarController {
     const results = await this._service.create(_request.body);
     return response.status(201).json(results);
   }
+
+  public async read(
+
+    _request: Request, 
+    response: Response<ICar[]>,
+  ) {
+    const results = await this._service.read();
+    return response.status(200).json(results);
+  }
 }
 
 export default CarController;

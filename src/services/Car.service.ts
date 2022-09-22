@@ -4,8 +4,8 @@ import IService from '../interfaces/IService';
 import ErrorWithStatus from '../Error';
 
 class CarService implements IService<ICar> {
-  private _car:IModel<ICar>;
-  constructor(model:IModel<ICar>) {
+  private _car: IModel<ICar>;
+  constructor(model: IModel<ICar>) {
     this._car = model;
   }
 
@@ -17,7 +17,7 @@ class CarService implements IService<ICar> {
     return this._car.read();
   }
 
-  public async readOne(_id: string): Promise<ICar > {
+  public async readOne(_id: string): Promise<ICar> {
     const theCar = await this._car.readOne(_id);
     if (!theCar) {
       throw new ErrorWithStatus('Object not found', 404);
@@ -32,5 +32,10 @@ class CarService implements IService<ICar> {
 
     return carUpdated;
   }
+
+//   public async read(): Promise<ICar[]> {
+//     return this._car.read();
+//   }
+// }
 }
 export default CarService;
